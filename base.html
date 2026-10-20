@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SecureLogin{% endblock %}</title>
+    {% block styles %}{% endblock %}
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="brand">SecureLogin</a>
+
+        <nav>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        FastAPI &amp; Jinja2 Login System
+    </footer>
+</body>
+</html>

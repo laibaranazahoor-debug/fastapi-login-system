@@ -1,0 +1,56 @@
+
+{% extends "base.html" %}
+
+{% block title %}Login | SecureLogin{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', path='/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="login-card">
+    <div class="login-icon">S</div>
+
+    <h1>Welcome Back</h1>
+    <p class="subtitle">Sign in to continue to your account</p>
+
+    {% if message %}
+    <div class="alert success">{{ message }}</div>
+    {% endif %}
+
+    {% if error %}
+    <div class="alert error">{{ error }}</div>
+    {% endif %}
+
+    <form action="/login" method="post">
+        <label for="email">Email Address</label>
+        <input
+            id="email"
+            name="email"
+            type="email"
+            maxlength="254"
+            autocomplete="email"
+            placeholder="Enter your email"
+            required
+        >
+
+        <label for="password">Password</label>
+        <input
+            id="password"
+            name="password"
+            type="password"
+            maxlength="128"
+            autocomplete="current-password"
+            placeholder="Enter your password"
+            required
+        >
+
+        <button type="submit">Login to Account</button>
+    </form>
+
+    <p class="switch">
+        Don't have an account?
+        <a href="/register">Create one</a>
+    </p>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+
+{% block title %}Dashboard | SecureLogin{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', path='/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="dashboard-card">
+    <div class="welcome-icon">✓</div>
+
+    <p class="eyebrow">USER DASHBOARD</p>
+    <h1>Welcome, {{ user.name }}!</h1>
+
+    <p class="subtitle">
+        You have successfully logged in to your account.
+    </p>
+
+    <div class="account-details">
+        <div class="detail">
+            <span>Full Name</span>
+            <strong>{{ user.name }}</strong>
+        </div>
+
+        <div class="detail">
+            <span>Email Address</span>
+            <strong>{{ user.email }}</strong>
+        </div>
+
+        <div class="detail">
+            <span>Account Status</span>
+            <strong class="status">Authenticated</strong>
+        </div>
+    </div>
+
+    <form action="/logout" method="post">
+        <button type="submit" class="logout-button">Logout</button>
+    </form>
+</section>
+{% endblock %}
